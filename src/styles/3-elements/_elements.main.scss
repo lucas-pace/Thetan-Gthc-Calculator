@@ -1,0 +1,39 @@
+@use '~styles/0-settings/settings.colors' as *;
+@use '~styles/0-settings/settings.fonts' as *;
+@use '~styles/1-tools/functions/functions.hex-to-rgb' as *;
+
+html {
+  font-weight: $font-weight-bold;
+  font-size: 62.5%;
+  font-family: $font-family;
+  line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-theme-dark);
+}
+
+body {
+  color: var(--color-theme-light);
+  background-color: var(--color-theme-dark);
+  font-size: 19px;
+  line-height: $line-height;
+}
+
+body.light-mode {
+  // Colors
+  @each $color-name, $color-hex in $colorsLight {
+    --color-#{$color-name}: #{$color-hex};
+    --color-#{$color-name}-rgb: #{hextorgb($color-hex)};
+  }
+}
+
+:root {
+  // Colors
+  @each $color-name, $color-hex in $colors {
+    --color-#{$color-name}: #{$color-hex};
+    --color-#{$color-name}-rgb: #{hextorgb($color-hex)};
+  }
+
+  // Default ci
+  --color-ci: var(--color-gold);
+}

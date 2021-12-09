@@ -1,0 +1,12 @@
+@use '~styles/0-settings/settings.fonts' as *;
+@use '~styles/1-tools/mixins/tools.media-query' as *;
+
+@mixin h1 {
+  font-weight: $font-weight-black;
+  font-size: 4rem;
+  font-family: $font-family;
+
+  @include mq(small) {
+    font-size: 6rem;
+  }
+}

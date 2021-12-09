@@ -1,0 +1,48 @@
+@use '~styles/0-settings/settings.fonts' as *;
+@use '~styles/1-tools/mixins/tools.fixed-ratio' as *;
+
+.button {
+  display: block;
+  padding: 1em 2em;
+  text-decoration: none;
+  border: 5px solid var(--color-ci);
+  width: 100%;
+  color: var(--color-theme-white);
+  font-size: 1.7rem;
+  font-weight: $font-weight-bold;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-ci);
+  }
+}
+
+.button--round {
+  @include fixed-ratio(1 / 1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  flex: 0 0 auto;
+  color: var(--color-theme-white);
+  font-size: 1.7rem;
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-ci);
+  }
+}
+
+.button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__icon svg{
+  width: 1.5em;
+  height: 1.5em;
+}
